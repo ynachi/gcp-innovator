@@ -6,6 +6,7 @@
 projects:
   - name : "prj-monitoring"
     parent: "folders/SOME_ID"
+    # services to activate
     services:
       - "container.googleapis.com"
     iam_additive:
