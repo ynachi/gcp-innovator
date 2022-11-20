@@ -1,0 +1,27 @@
+---
+# Doc https://github.com/GoogleCloudPlatform/cloud-foundation-fabric/tree/master/modules/project
+# Exmple variables to create a functional project. We leverage yaml instead providing terraform vars 
+# directly. This single file is used to populate the different modules used to create projects and 
+# associated resources.
+projects:
+  - name : "prj-monitoring"
+    parent: "folders/SOME_ID"
+    services:
+      - "container.googleapis.com"
+    iam_additive:
+      "roles/viewer":
+        - "group:one@example.org"
+        - "group:two@xample.org"
+      "roles/owner":
+        - "group:one@example.org"
+        - "group:two@xample.org"
+    group_iam:
+      "foo@example.com":
+        - "roles/editor"
+    service_accounts:
+    # Mendatory to have a SA named sa-cicd for now. Will fix this later.
+      - name: "sa-cicd"
+        display_name: "SA for deployments via automation in this project via CICD"
+        generate_key: true
+        iam_roles:
+          - "roles/storage.admin"
