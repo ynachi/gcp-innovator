@@ -37,10 +37,7 @@ module "prj-service-accounts" {
   generate_key = each.value.sa_generate_key
   # authoritative roles granted *on* the service accounts to other identities
   iam_project_roles = {
-    "myproject" = [
-      "roles/logging.logWriter",
-      "roles/monitoring.metricWriter",
-    ]
+    "${each.value.sa_project_name}" = each.value.sa_iam_roles
   }
 }
 
