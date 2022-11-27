@@ -39,6 +39,9 @@ module "prj-service-accounts" {
   iam_project_roles = {
     "${each.value.sa_project_name}" = each.value.sa_iam_roles
   }
+  depends_on = [
+    module.project
+  ]
 }
 
 module "bucket" {
@@ -51,4 +54,7 @@ module "bucket" {
   iam = {
     "roles/storage.admin" = ["serviceAccount:sa-cicd@${each.value.name}.iam.gserviceaccount.com"]
   }
+  depends_on = [
+    module.prj-service-accounts
+  ]
 }

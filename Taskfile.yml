@@ -1,0 +1,27 @@
+version: '3'
+
+vars:
+  DEV_ENV: "platform/envs/dev"
+  PROD_ENV: "platform/envs/prod"
+
+tasks:
+  tf:dev:init:
+    desc: Initialize dev environment for terraform
+    cmds:
+      - terraform -chdir={{.DEV_ENV }} init
+  tf:fmt:
+    desc: Recursively apply terraform format
+    cmds:
+      - terraform -chdir=platform fmt -recursive
+  tf:dev:validate:
+    desc: Validate terraform config for dev environment
+    cmds:
+      - terraform -chdir={{.DEV_ENV }} validate
+  tf:dev:plan:
+    desc: Terraform plan dev environment
+    cmds:
+      - terraform -chdir={{.DEV_ENV }} plan
+  tf:dev:apply:
+    desc: Terraform apply dev environment
+    cmds:
+      - terraform -chdir={{.DEV_ENV }} apply
