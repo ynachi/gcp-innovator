@@ -49,7 +49,7 @@ module "bucket" {
   source        = "git::https://github.com/GoogleCloudPlatform/cloud-foundation-fabric.git//modules/gcs?ref=v18.0.0"
   project_id    = var.tf_bucket_project
   name          = each.value.name
-  location      = "US" # we only want US
+  location      = "us-central1" # we only want US
   storage_class = "STANDARD"
   iam = {
     "roles/storage.admin" = ["serviceAccount:sa-cicd@${each.value.name}.iam.gserviceaccount.com"]
