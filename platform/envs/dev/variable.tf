@@ -21,10 +21,11 @@ variable "shared_project_id" {
 
 variable "shared_vpc_svc_projects" {
   description = "List of service projects ID"
-  type        = list(string)
+  type        = list(any)
 }
 
 variable "shared_vpc_subnets" {
   description = "subnets for the shared vpc"
   type        = list(any)
 }
+
