@@ -29,3 +29,8 @@ variable "shared_vpc_subnets" {
   type        = list(any)
 }
 
+variable "shared_default_region" {
+  description = "Default region for shared resources"
+  type        = string
+  default     = "northamerica-northeast1"
+}
