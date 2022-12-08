@@ -1,0 +1,31 @@
+billing_account_id = "YOUR BILLING ID"
+tf_bucket_project  = "tf-some-bucket"
+shared_project_id  = "some-project-shared"
+shared_vpc_subnets = [{
+  ip_cidr_range = "172.16.0.0/16"
+  name          = "subnet-101"
+  region        = "northamerica-northeast1"
+  secondary_ip_range = {
+    alias1 = "10.242.0.0/16"
+    alias2 = "10.243.0.0/16"
+  }
+  },
+  {
+    ip_cidr_range = "172.17.0.0/16"
+    name          = "subnet-201"
+    region        = "northamerica-northeast1"
+    secondary_ip_range = {
+      alias1 = "10.244.0.0/16"
+      alias2 = "10.245.0.0/16"
+    }
+  },
+  {
+    ip_cidr_range = "172.18.0.0/16"
+    name          = "subnet-301"
+    region        = "northamerica-northeast1"
+    secondary_ip_range = {
+      alias1 = "10.246.0.0/16"
+      alias2 = "10.247.0.0/16"
+    }
+}]
+shared_vpc_svc_projects = ["some-other-existing-project-dev"]
