@@ -8,7 +8,7 @@ tasks:
   tf:dev:init:
     desc: Initialize dev environment for terraform
     cmds:
-      - terraform -chdir={{.DEV_ENV }} init
+      - terraform -chdir={{.DEV_ENV}} init
   tf:fmt:
     desc: Recursively apply terraform format
     cmds:
@@ -16,12 +16,12 @@ tasks:
   tf:dev:validate:
     desc: Validate terraform config for dev environment
     cmds:
-      - terraform -chdir={{.DEV_ENV }} validate
+      - terraform -chdir={{.DEV_ENV}} validate
   tf:dev:plan:
     desc: Terraform plan dev environment
     cmds:
-      - terraform -chdir={{.DEV_ENV }} plan
+      - terraform -chdir={{.DEV_ENV}} plan
   tf:dev:apply:
     desc: Terraform apply dev environment
     cmds:
-      - terraform -chdir={{.DEV_ENV }} apply
+      - terraform -chdir={{.DEV_ENV}} apply
